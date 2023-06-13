@@ -1,7 +1,7 @@
 
 export const CATEGORIES: string[] = [
-  'програмування',
-  'життя',
-  'технології',
-  'наука'
+  'programming',
+  'life',
+  'tech',
+  'since'
 ];
