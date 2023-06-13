@@ -1,0 +1,27 @@
+
+.blog_container{
+  display: flex;
+  padding: 20px 0;
+  border-top: 1px solid #c4c4c4;
+  box-sizing: border-box;
+}
+
+.blog_container:first-child{
+  border-top: none;
+  padding-top: 0;
+}
+
+.blog{
+  width: 900px
+}
+
+.menu{
+  margin-left: 5px;
+  position: relative;
+  top: 15px;
+  right: 15px;
+}
+
+.no_blog{
+  margin-top: 20px;
+}

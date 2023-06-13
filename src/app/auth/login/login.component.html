@@ -1,0 +1,30 @@
+<div class="login_container">
+  <div class="main_title roboto-black">Вхід</div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="login">
+    <mat-form-field class="email">
+      <mat-label>Введіть адресу електронної пошти</mat-label>
+      <input matInput placeholder="vlad@example.com" required
+             formControlName="email">
+      <mat-error>{{getEmailErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Введіть ваш пароль</mat-label>
+      <input matInput required
+             formControlName="password"
+             [type]="hidePassword ? 'password' : 'text'"
+             #inputPassword>
+      <button mat-icon-button matSuffix
+              (click)="hidePassword = !hidePassword">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error>{{getPasswordErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <button mat-flat-button type="submit" class="login_button" color="primary">
+      <span class="login_text">Увійти</span>
+    </button>
+    <button mat-stroked-button (click)="createAccount()" color="primary" class="register_button">
+      <span class="register_text">Зареєструватися</span>
+    </button>
+  </form>
+</div>

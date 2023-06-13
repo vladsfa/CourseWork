@@ -1,0 +1,31 @@
+<div class="register_container">
+  <div class="main_title roboto-black">Реєстрація</div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="register">
+    <mat-form-field>
+      <mat-label>Введіть ім'я</mat-label>
+      <input matInput placeholder="Петро Петрович" formControlName="fullName" required>
+      <mat-error>{{getFullNameErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="email">
+      <mat-label>Введіть адресу електронної пошти</mat-label>
+      <input matInput placeholder="vlad@example.com" formControlName="email" required>
+      <mat-error *ngIf="register.controls['email'].invalid">{{getEmailErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Введіть ваш пароль</mat-label>
+      <input matInput formControlName="password" required
+             [type]="hidePassword ? 'password' : 'text'"
+             #inputPassword>
+      <button mat-icon-button matSuffix
+              (click)="hidePassword = !hidePassword">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="register.controls['password'].invalid"> Мінімум 6 символів {{inputPassword.value.length}}/6</mat-error>
+    </mat-form-field>
+    <button mat-flat-button type="submit" class="register_button" color="primary">
+      <span class="register_text">Зареєструватися</span>
+    </button>
+  </form>
+</div>

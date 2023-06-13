@@ -1,0 +1,20 @@
+<div class="container" #container *ngIf="isInitial">
+  <div class="img">
+    <img [src]="photoUrl">
+  </div>
+  <p class="displayName roboto-regular">{{user.fullName}}</p>
+  <div class="email_container">
+    <mat-icon>mail</mat-icon>
+    <p class="email roboto-light">{{user.email}}</p>
+  </div>
+  <div class="buttons" *ngIf="isCurrentUser">
+    <button class="edit_button" routerLink="edit">Редагувати профіль</button>
+    <button class="delete_button" (click)="deleteUser()">Видалити аккаунт</button>
+    <input type="password"
+           class="password"
+           placeholder="Пароль..."
+           [formControl]="passwordControl"
+           [class]="{'invalid': passwordControl.invalid}"
+           *ngIf="isPressDelete">
+  </div>
+</div>

@@ -1,0 +1,45 @@
+.main_title{
+  margin-bottom: 30px;
+  position: relative;
+  left: 37.5%;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.login_container{
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field{
+  width: 320px;
+  margin-bottom: 10px;
+}
+
+.register_button{
+  padding: 20px;
+  border: 1px solid #00A562 !important;
+}
+
+.register_text{
+  color: #00A562;
+  font-size: 16px;
+}
+
+.login_button{
+  background-color: #00A562 !important;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.login_text{
+  color: white;
+  font-size: 16px;
+}

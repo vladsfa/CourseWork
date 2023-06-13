@@ -1,0 +1,109 @@
+.container{
+  width: 400px;
+  height: 400px;
+  background-color: #f1f1f1;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.img{
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  overflow: hidden;
+}
+
+.img img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.email_container{
+  display: flex;
+  align-items: center;
+}
+
+.email_container mat-icon{
+  color: #777777;
+}
+
+.displayName{
+  margin-top: 15px;
+}
+
+.email_container{
+  margin-top: 12px;
+}
+
+.edit_button{
+  margin-top: 12px;
+}
+
+.displayName{
+  font-size: 20px;
+}
+
+.email{
+  letter-spacing: 0.5px;
+  margin-left: 2.5px;
+  font-weight: 400;
+}
+
+.edit_button{
+  margin-top: 10px;
+  padding: 9px 30px;
+  background-color: white;
+  border: 1px solid #00A562;
+  border-radius: 25px;
+  color: #00A562;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.edit_button:hover{
+  background-color: #00A562;
+  color: white;
+}
+
+.delete_button{
+  margin-top: 10px;
+  padding: 9px 30px;
+  background-color: white;
+  border: 1px solid #f44336;
+  border-radius: 25px;
+  color: #f44336;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.delete_button:hover{
+  background-color: #f44336;
+  color: white;
+}
+
+.password{
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 5px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #777777;
+}
+
+.invalid{
+  border: 1px solid #f44336;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

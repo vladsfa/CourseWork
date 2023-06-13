@@ -1,0 +1,14 @@
+<div class="post_short_container" #container>
+  <div class="post_short_container_main" #main>
+    <p class="post_short_category" #category>{{blog.category | titlecase}}</p>
+    <p class="post_short_title roboto-black" #title>{{blog.title}}</p>
+    <p class="post_short_author roboto-regular" #authorElem>{{(author | async)?.fullName}}</p>
+    <p class="post_short_date roboto-light" #date>{{getFormatDate()}}</p>
+  </div>
+  <div class="post_short_container_description" #desc>
+    <p class="post_short_description">{{blog.description}}</p>
+  </div>
+  <div class="post_short_image_container" #imgContainer>
+    <img src="{{blog.imgUrl}}" alt="">
+  </div>
+</div>

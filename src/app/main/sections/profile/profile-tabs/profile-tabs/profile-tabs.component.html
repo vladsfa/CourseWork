@@ -1,0 +1,14 @@
+<div class="tabs_container">
+  <div class="tabs_name">
+    <a  *ngFor="let tab of tabs"
+        class="tab_name"
+        [routerLink]="tab"
+        (click)="currentTab = tab"
+        [class]="{'active': currentTab === tab}">
+      {{tab | titlecase}}
+    </a>
+  </div>
+  <div class="tabs_body">
+    <router-outlet></router-outlet>
+  </div>
+</div>

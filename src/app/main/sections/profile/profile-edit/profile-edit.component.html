@@ -1,0 +1,55 @@
+<div class="main" *ngIf="isLoad">
+  <div class="main_container">
+    <p class="title roboto-regular">Редагування профілю</p>
+    <div class="container">
+      <div class="fields_section">
+        <form (ngSubmit)="onSubmit()" [formGroup]="edit">
+          <div class="fields">
+            <div class="field">
+              <input type="text" class="field_input"
+                     formControlName="fullName"
+                     [class]="{'error': fullNameControl.invalid && fullNameControl.value != initialFullName}">
+              <p class="field_lable roboto-light" *ngIf="fullNameControl.valid || fullNameControl.value  == initialFullName">Відображуване Ім'я</p>
+              <p class="field_lable roboto-light error_message"
+                 *ngIf="fullNameControl.invalid && fullNameControl.value  != initialFullName">
+                {{getFullNameErrorMessage()}}
+              </p>
+            </div>
+            <div class="field">
+              <input type="text" class="field_input"
+                     formControlName="email"
+                     [class]="{'error': emailControl.invalid && emailControl.value != initialEmail}">
+              <p class="field_lable roboto-light" *ngIf="emailControl.valid || emailControl.value == initialEmail">Адрес Електронної Пошти</p>
+              <p class="field_lable roboto-light error_message"
+                 *ngIf="emailControl.invalid && emailControl.value != initialEmail">
+                {{getEmailErrorMessage()}}
+              </p>
+            </div>
+            <div class="field">
+              <input type="password" class="field_input"
+                     formControlName="password"
+                     [class]="{'error': passwordControl.invalid}">
+              <p class="field_lable roboto-light" *ngIf="passwordControl.valid">Введіть ваш пароль для підтвердження</p>
+              <p class="field_lable roboto-light error_message"
+                 *ngIf="passwordControl.invalid">
+                {{getPasswordErrorMessage()}}
+              </p>
+            </div>
+          </div>
+          <button class="fields_button" type="submit">Зберегти</button>
+        </form>
+      </div>
+      <div class="img_edit">
+        <div class="img_title roboto-light">Зображення профілю</div>
+        <div class="img" (click)="change.click()">
+          <img [src]="photoUrl">
+        </div>
+        <div class="container_button_change">
+          <button (click)="change.click()" class="edit_button">Змінити</button>
+          <input type="file" id="fileInput" style="display: none;" #change (change)="updateImg($event)">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sucess_table" *ngIf="isSucessTable">Зміни успішно збережено!</div>
+</div>

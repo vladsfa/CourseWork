@@ -1,0 +1,29 @@
+<div class="shell">
+  <div class="title">
+    {{count}} Коментарів
+  </div>
+  <div class="post_comment">
+    <mat-form-field class="post_comment_area">
+          <textarea matInput [(ngModel)]="commentText"
+                    placeholder="Додати коментарь..."
+                    (focus)="isExpanded = true"
+                    [ngClass]="{'expanded': isExpanded}">
+          </textarea>
+    </mat-form-field>
+    <div class="expanded_container" *ngIf="isExpanded">
+      <button class="cancel_button button"
+              (click)="cancel()">
+        Скасувати
+      </button>
+      <button class="submit_button button"
+              (click)="submit()">
+        Надіслати
+      </button>
+    </div>
+  </div>
+  <div class="comments_container">
+    <div *ngFor="let comment of comments" class="comment">
+      <app-comment [comment]="comment"></app-comment>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="comment">
+  <div class="header">
+    <div class="header_left">
+      <div class="user_img">
+        <img [src]="(user | async)?.photoUrl" alt="">
+      </div>
+      <div class="title">
+        <a class="user_name roboto-regular" [routerLink]="['/profile', (user | async)?.uid]">
+          {{(user | async)?.fullName}}
+        </a>
+        <div class="date roboto-light">
+          {{formatDate(comment.date.toDate())}}
+        </div>
+      </div>
+    </div>
+    <div class="menu" *ngIf="comment.uid == ((authUser | async)?.uid)">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu>
+        <button mat-menu-item (click)="edit()">
+          <mat-icon>edit</mat-icon>
+          <span>Редагувати</span>
+        </button>
+        <button mat-menu-item (click)="delete()">
+          <mat-icon>delete</mat-icon>
+          <span>Видалити</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="main roboto-regular">
+    <span [class]="{'hide': isEdit}">{{comment.text}}</span>
+    <div class="edit" [class]="{'hide': !isEdit}">
+          <textarea #editTextArea id="editTextArea"
+                    [(ngModel)]="editText"
+                    (input)="adjustTextareaTitleHeight($event.target, 20)"
+                    (click)="adjustTextareaTitleHeight($event.target, 20)"
+                    class="main_edit roboto-regular">
+          </textarea>
+      <button class="cancel_button button"
+              (click)="cancel()">
+        Скасувати
+      </button>
+      <button class="submit_button button"
+              (click)="save()">
+        Зберегти
+      </button>
+    </div>
+  </div>
+</div>

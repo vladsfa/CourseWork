@@ -1,0 +1,65 @@
+<div class="blog_full_container" *ngIf="isInitial">
+  <form [formGroup]="blogForm" (submit)="$event.preventDefault();">
+    <p class="blog_full_category">
+      <select class="category_select" #selectElement
+              (change)="onCategoryChange($event.target!);"
+              formControlName="category"
+              [class]="{'field_error': categoryControl.invalid}">
+        <option [value]="categories[0]"
+                class="category_option" selected>
+          {{categories[0] | titlecase}}
+        </option>
+        <option *ngFor="let category of categories; let i = index"
+                [value]="category"
+                class="category_option"
+                [class]="{'hide': i == 0}">
+          {{category | titlecase}}
+        </option>
+      </select>
+    </p>
+    <textarea class="roboto-black title_input" placeholder="Заголовок"
+              formControlName="title"
+              [class]="{'field_error': titleControl.invalid && this.isTrySubmit}"
+              (input)="adjustTextareaTitleHeight($event.target, 48); ">
+    </textarea>
+    <div class="blog_full_add">
+      <p class="blog_full_author roboto-regular">{{user.displayName}}</p>
+      <p class="blog_full_separate">/</p>
+      <p class="blog_full_date roboto-light">{{formattedDate()}}</p>
+    </div>
+    <div class="blog_full_image">
+      <div class="img" [class]="{'imgHigh': isFirstClickImg,
+       'field_error': imgControl.invalid}" [ngStyle]="{'opacity': isUploadImg ? 1 : 0.5}"
+           id="img">
+        <img id="blogImg" [src]="blog.imgUrl" (click)="onImgClick($event.target)">
+      </div>
+      <input type="file" id="fileInput" style="display: none;" #change
+             (change)="updateImg($event)">
+    </div>
+    <div class="blog_full_body">
+    <textarea #textArea type="text" class="edit_textarea"
+              placeholder="Введіть текст вашого блогу у форматі html, нажміть enter щоб побачити результат..."
+              (blur)="isEditText = false"
+              (click)="adjustTextareaHeight($event.target, 100,true)"
+              (input)="adjustTextareaHeight($event.target, 100)"
+              [class]="{'hide': !isEditText, 'field_error': textControl.invalid && this.isTrySubmit}"
+              formControlName="text">
+    </textarea>
+      <div class="formatted_text text"
+         [innerHTML]="textControl.value"
+         (click)="isEditText = true; textArea.click();"
+         [class]="{'hide': isEditText, 'field_error': textControl.invalid && this.isTrySubmit}">
+      </div>
+    </div>
+    <div class="submit_menu">
+      <div class="description_container">
+      <textarea class="description_text"
+                placeholder="Опис вашого блогу, ця інформація буде відображатись на головній сторінці..."
+                formControlName="description"
+                [class]="{'field_error': descriptionControl.invalid && this.isTrySubmit}">
+      </textarea>
+      </div>
+      <button class="submit_button" type="submit" (click)="createBlog()">Опублікувати</button>
+    </div>
+  </form>
+</div>

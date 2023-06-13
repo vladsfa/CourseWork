@@ -1,0 +1,16 @@
+.blog:first-child{
+  border-top: none;
+}
+
+.blog{
+  border-top: 2px solid #f1f1f1;
+  position: relative;
+  left: -50px;
+  width: 870px;
+  box-sizing: border-box;
+}
+
+.blogs{
+  margin-top: 20px;
+  width: 960px;
+}

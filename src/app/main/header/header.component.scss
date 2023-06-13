@@ -1,0 +1,35 @@
+.header_nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 350px 0 250px;
+  padding: 20px 10px 10px;
+}
+
+.login{
+  align-self: center;
+}
+
+a{
+  text-decoration: none;
+}
+
+.header_tabs_container{
+  display: flex;
+  align-items: center;
+}
+
+.header_tab {
+  margin-right: 20px;
+}
+
+.tab_link{
+  letter-spacing: 1.2px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #777777;
+}
+
+.active{
+  border-bottom: 2px solid #00A562 !important;
+}

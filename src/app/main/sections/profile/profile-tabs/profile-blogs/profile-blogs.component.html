@@ -1,0 +1,19 @@
+<div class="blogs" *ngIf="(blogs | async)?.length! > 0">
+  <div *ngFor="let e of blogs | async" class="blog_container">
+    <div class="blog">
+      <app-post-short [blog]="e" (click)="toBlogPage(e.id)" style="cursor: pointer"></app-post-short>
+    </div>
+    <div class="buttons">
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu>
+        <button mat-menu-item (click)="delete(e.id)">
+          <mat-icon>delete</mat-icon>
+          <span>Видалити</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</div>
+<p *ngIf="(blogs | async)?.length! == 0" class="no_blog">Цей користувач не опублікував жодного блогу.</p>

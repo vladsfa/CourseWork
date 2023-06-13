@@ -1,0 +1,54 @@
+<nav mat-tab-nav-bar [tabPanel]="tabPanel" class="header_nav">
+  <a mat-tab-link *ngFor="let category of categories"
+     [active]="currentCategory == category"
+     [routerLink]="['/blogs', category]"
+     (click)="currentCategory = category">
+  <span class="tab_link">{{category | titlecase}}</span>
+  </a>
+  <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isAuth()">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <button mat-icon-button routerLink="/login" *ngIf="!isAuth()">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</nav>
+
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+<mat-menu #menu>
+  <button mat-menu-item [routerLink]="['/profile', user?.uid]">
+    <mat-icon>assignment_ind</mat-icon>
+    <span>Профіль</span>
+  </button>
+  <button mat-menu-item routerLink="/blog-add">
+    <mat-icon>note_add</mat-icon>
+    <span>Добавити блог</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Вийти</span>
+  </button>
+</mat-menu>
+<!--<nav class="header_nav">
+  <div class="header_logo"><img ngSrc="../../../../favicon.ico" alt="" height="30" width="28"></div>
+  <div class="header_tabs_container">
+    <div class="header_tab"><a [routerLink]="['/main', 'tech']" class="roboto-regular">Tech</a></div>
+    <div class="header_tab"><a [routerLink]="['/main', 'science']" class="roboto-regular">Science</a></div>
+    <div class="header_tab"><a [routerLink]="['/main', 'gaming']" class="roboto-regular">Gaming</a></div>
+    <div class="header_tab"><a [routerLink]="['/main', 'entertainment']" class="roboto-regular">Entertainment</a></div>
+  </div>
+  <div class="header_tools">
+    <div class="header_profile">
+      <div class="header_profile_unauthorized"
+           *ngIf="!isAuth()">
+        <button class="roboto-regular" mat-flat-button (click)="login()">Login</button>
+      </div>
+      <div class="header_profile_authorized"
+           *ngIf="isAuth()">
+        <p>{{(user | async)?.displayName}}</p>
+        <button mat-flat-button (click)="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="header_search"></div>
+  </div>
+</nav>
+-->

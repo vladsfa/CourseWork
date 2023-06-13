@@ -1,0 +1,35 @@
+.main_title{
+  margin-bottom: 30px;
+  position: relative;
+  left: 22.5%;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.register_container{
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field{
+  width: 320px;
+  margin-bottom: 10px;
+}
+
+.register_button{
+  background-color: #00A562 !important;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.register_text{
+  color: white;
+  font-size: 16px;
+}

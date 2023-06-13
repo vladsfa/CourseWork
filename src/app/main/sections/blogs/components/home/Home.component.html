@@ -1,0 +1,5 @@
+<div class="blogs">
+  <div *ngFor="let e of blogs | async" class="blog" (click)="toBlogPage(e.id)">
+    <app-post-short [blog]="e"></app-post-short>
+  </div>
+</div>

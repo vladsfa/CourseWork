@@ -1,0 +1,29 @@
+.tab_name{
+  text-decoration: none;
+  letter-spacing: 1.2px;
+  font-size: 18px;
+  color: #777777;
+  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  position: relative;
+  top: 1px;
+}
+
+.tabs_name{
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.active{
+  color: #00A562;
+  border-bottom: 2px solid #00A562;
+}
+
+.tabs_body{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.hide{
+  opacity: 0;
+}

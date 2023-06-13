@@ -1,0 +1,18 @@
+<div class="blog_full_container" *ngIf="isLoad">
+  <p class="blog_full_category">{{blog.category | titlecase}}</p>
+  <p class="blog_full_title roboto-black">{{blog.title}}</p>
+  <div class="blog_full_add">
+    <a class="blog_full_author roboto-regular" [routerLink]="['/profile', user.uid]">{{user.fullName}}</a>
+    <p class="blog_full_separate">/</p>
+    <p class="blog_full_date roboto-light">{{getFormatDate(blog.date.toDate())}}</p>
+  </div>
+  <div class="blog_full_image">
+    <img src="{{blog.imgUrl}}" alt="">
+  </div>
+  <div class="blog_full_body">
+    <p class="blog_full_text" [innerHTML]="blog.text"></p>
+  </div>
+  <div class="comments">
+    <app-comments-segment [bid]="blog.id!"></app-comments-segment>
+  </div>
+</div>
